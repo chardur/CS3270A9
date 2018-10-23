@@ -1,45 +1,29 @@
-# CS3270A8
-CS3270 - Android Development  Assignment #8
+# CS3270A9
+CS3270 - Android Development  Assignment #9
 
-This assignment is designed to give you additional experience in previously learned Android development techniques along with new experience utilizing Recycler Views, Recycler Adapters, MVVM / LiveData, and intro to theming.
+This assignment using technologies and techniques used in prior assignments as well as the specific REST API related helps that are included in this week's module.
+
 Your submission for this assignment will be Screen Captures, and a zip file of your entire project folder.
 
-NOTE: The app that you're developing in this assignment will be the continuation of the last assignment, and a building point for next week's assignment as well.
-
-
-This assignment will use the database you designed last week as part of A7. As a reminder it should have the following Course columns in your Entity:
-
-_id: integer primary key auto-increment
-id: text
-name: text
-course_code: text
-start_at: text
-end_at: text
-
-(Note that the _id field will NOT be entered by the user on the add or edit screens.  It is the auto-numbered identity field of the database table and is managed by Room.)
+The app that you're developing will extend the course database from Assignment #8 to allow for the import of courses from your Canvas account.  The user should be able to initiate the import via an Option Menu Selection.  Learning how to refactor a project into a new one is an essential skill
+Additionally, the user should also be able  to see a list of the assignments for a course by long-pressing on a course in the course list.
 
 Your assignment is as follows.
 
-1. Create a new Android project named CS3270A8.
-2. Modify the app to change the application name to "CS3270A8 <Your Name>"
-3. Create an Activity, Fragments and layouts to function similar to the screen shots below.
-You should have
-- MainActivity
-- CourseListFragment
-- CourseViewFragment
-- CourseEditFragment
-- you will also need a Recycler View Adapter, database classes,and a Delete Confirmation Dialog.
-4. The functionality of the app is that the user can do the following:
-   -   Add a new course to the database
-   -   View a list of courses
-   -   View the details of a selected course
-   -   Edit a selected course
-   -   Add a new course
-   -   Delete a selected course
-5. The Edit and Delete functions should be selected via a Toolbar icon
-6. The View and Edit fragment UI elements should be contained in a ScrollView so that they can move out of the way of the keyboard.
-7. Save and test the app on the emulator or device.
-8. Check the "Problems" tab to insure that you have resolved all errors and warnings.
-9. Using Android Monitor, capture sufficient screenshots of the app.
-  - Save the screenshots as CS3270A8Cap1.png, CS3270A8Cap2.png, etc.
- - Zip your project file into a file named CS3270A8.zip
+1. Create a copy of your CS3270A8 folder rename it to be CS3270A9.
+ - refactor the project, modifying all necessary parts to reflect the new project and app name.
+ - the app name should be CS3270A9 <your last name>
+2. Create an option menu item that will be available when the used is on the Course List to provide for the import of your own Canvas Course information via the Canvas REST API.  The INTERNET permission must be set in the manifest file in order to connect to the Canvas REST API.
+3. Use the imported Course information to load the SQLite (i.e. ROOM Database) Course table after first deleting any existing rows.  The table can be loaded using the same insert method that was used for manual data entry.
+4. Once the Course information has been imported into the SQLite database, it should be able to be displayed and edited in the same manner as it was in Assignment #8.
+5. Create a layout and code to allow the user to long press on a course which then displays a list of assignments for that course.  The assignments are received via the Canvas REST API in a manner similar to that of retrieving the Courses.  Note that the assignments should be displayed in a ListView, but should not be saved in the database.
+6. Save and test the app on the emulator or device.
+7. Check the "Problems" tab to insure that you have resolved all errors and warnings.
+8. IMPORTANT - 
+    Prior to zipping your project folder for submissions, change your Canvas API Auth Key to an empty string to preserve the security of your key.  I will be using my own key to test your app.
+9. Capture screenshots of the important functions of the app.
+  - Save the screenshots as CS3270A9Cap1.png, CS3270A9Cap2.png, etc.
+ - Zip your project file into a file named CS3270A9.zip
+
+  Submit (upload) both your final screen shots and zipped project folder on or before the Due Date. 
+- Make sure that the files are named correctly. Files that are incorrectly named will not be graded.
