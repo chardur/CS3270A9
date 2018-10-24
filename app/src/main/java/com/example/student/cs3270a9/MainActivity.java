@@ -12,12 +12,14 @@ import com.example.student.cs3270a9.db.Course;
 
 public class MainActivity extends AppCompatActivity implements
         CourseRecyclerViewAdapter.CourseRecyclerInterface, CourseViewFragment.CourseViewInterface,
-        CourseEditFragment.CourseEditInterface, DeleteDialogFragment.DeleteDialogInterface{
+        CourseEditFragment.CourseEditInterface, DeleteDialogFragment.DeleteDialogInterface,
+CourseListFragment.ListInterface{
 
     private CourseViewFragment courseViewFragment;
     private CourseEditFragment courseEditFragment;
     private DeleteDialogFragment dialog;
     private Toolbar toolbar;
+    private GetCanvasCourses task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,5 +100,10 @@ public class MainActivity extends AppCompatActivity implements
     }
     public void setToolbar(){
         setSupportActionBar(toolbar);
+    }
+
+    public void downloadPressed(){
+        task = new GetCanvasCourses();
+        task.execute("");
     }
 }

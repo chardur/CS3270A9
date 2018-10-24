@@ -29,6 +29,10 @@ public interface CourseDAO {
     @Delete
     void delete(Course course);
 
+    //delete all courses
+    @Query("Delete from course")
+    void deleteAll();
+
     // add one or more courses
     @Insert
     void insert(Course... courses);

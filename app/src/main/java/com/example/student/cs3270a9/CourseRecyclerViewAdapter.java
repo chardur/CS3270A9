@@ -55,7 +55,6 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
             holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //todo user clicked
                     mCallBack.itemSelected(course);
 
                 }

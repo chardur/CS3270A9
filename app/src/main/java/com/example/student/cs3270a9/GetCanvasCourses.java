@@ -49,7 +49,7 @@ public class GetCanvasCourses extends AsyncTask<String, Integer, String> {
             Log.d("test", "Unable to connect to internet, i/o");
         }
 
-        return null;
+        return rawJSON;
     }
 
     @Override

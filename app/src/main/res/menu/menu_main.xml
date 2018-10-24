@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.student.cs3270a9.MainActivity">
     <item
-        android:id="@+id/action_restCourses"
+        android:id="@+id/action_downloadCourses"
         android:title="Get Courses from canvas"
         android:icon="@drawable/ic_file_download_white_24dp"
         app:showAsAction="always" />
