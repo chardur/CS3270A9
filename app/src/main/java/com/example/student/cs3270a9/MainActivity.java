@@ -1,5 +1,6 @@
 package com.example.student.cs3270a9;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
@@ -8,7 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.student.cs3270a9.db.AppDatabase;
 import com.example.student.cs3270a9.db.Course;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements
         CourseRecyclerViewAdapter.CourseRecyclerInterface, CourseViewFragment.CourseViewInterface,
@@ -102,8 +106,33 @@ CourseListFragment.ListInterface{
         setSupportActionBar(toolbar);
     }
 
-    public void downloadPressed(){
+    public void downloadPressed(final Context context){
         task = new GetCanvasCourses();
+        task.setmCallBack(new GetCanvasCourses.OnCourseListComplete() {
+            @Override
+            public void processCourseList(List<Course> courses) {
+                if (courses != null){
+                    addDownloadedCourses(courses, context);
+                }
+            }
+        });
         task.execute("");
+    }
+
+    public void addDownloadedCourses(final List<Course> courses, final Context context){
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                AppDatabase.getInstance(context)
+                        .courseDAO()
+                        .deleteAll();
+                for (Course c: courses) {
+                    AppDatabase.getInstance(context)
+                            .courseDAO()
+                            .insert(c);
+                }
+            }
+        }).start();
     }
 }

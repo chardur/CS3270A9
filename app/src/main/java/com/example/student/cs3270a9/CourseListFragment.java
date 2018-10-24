@@ -35,7 +35,7 @@ public class CourseListFragment extends Fragment {
     private ListInterface mCallBack;
 
     interface ListInterface{
-        void downloadPressed();
+        void downloadPressed(Context context);
     }
 
     public CourseListFragment() {
@@ -76,22 +76,7 @@ public class CourseListFragment extends Fragment {
 
         switch (item.getItemId()) {
             case R.id.action_downloadCourses:
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-
-                    AppDatabase.getInstance(getContext())
-                            .courseDAO()
-                            .deleteAll();
-
-                    mCallBack.downloadPressed();
-/*                    for (Course c: downloadedCourses) {
-                        AppDatabase.getInstance(getContext())
-                                .courseDAO()
-                                .insert(c);
-                    }*/
-                }
-            }).start();
+                    mCallBack.downloadPressed(getContext());
             return true;
 
             default:
