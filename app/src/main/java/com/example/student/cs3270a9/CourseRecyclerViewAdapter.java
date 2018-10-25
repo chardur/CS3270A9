@@ -22,6 +22,7 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
 
     interface CourseRecyclerInterface{
         void itemSelected(Course course);
+        void longItemSelected(Course course);
     }
 
     public CourseRecyclerViewAdapter(List<Course> courses, FragmentActivity activity) {
@@ -57,6 +58,14 @@ public class CourseRecyclerViewAdapter extends RecyclerView.Adapter<CourseRecycl
                 public void onClick(View v) {
                     mCallBack.itemSelected(course);
 
+                }
+            });
+
+            holder.view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    mCallBack.longItemSelected(course);
+                    return true;
                 }
             });
 

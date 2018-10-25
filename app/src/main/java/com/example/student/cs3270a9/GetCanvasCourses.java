@@ -32,7 +32,7 @@ public class GetCanvasCourses extends AsyncTask<String, Integer, String> {
     protected String doInBackground(String... strings) {
 
         try{
-            URL url = new URL("https://weber.instructure.com//api/v1/courses");
+            URL url = new URL("https://weber.instructure.com/api/v1/courses");
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
 
             connection.setRequestMethod("GET");

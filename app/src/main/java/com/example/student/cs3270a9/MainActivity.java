@@ -23,7 +23,7 @@ CourseListFragment.ListInterface{
     private CourseEditFragment courseEditFragment;
     private DeleteDialogFragment dialog;
     private Toolbar toolbar;
-    private GetCanvasCourses task;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +67,22 @@ CourseListFragment.ListInterface{
     }
 
     @Override
+    public void longItemSelected(Course course) {
+        GetCanvasAssignments task = new GetCanvasAssignments();
+        task.setCourseID(course.getId());
+        task.setmCallback(new GetCanvasAssignments.OnAssignmentComplete() {
+            @Override
+            public void processAssignmentList(Assignment[] assignments) {
+                if (assignments != null){
+                    // TODO: 10/25/2018 put data into listview
+                    
+                }
+            }
+        });
+        task.execute("");
+    }
+
+    @Override
     public void editPressed(Course course) {
         courseEditFragment = new CourseEditFragment();
         FragmentManager fm = getSupportFragmentManager();
@@ -107,7 +123,7 @@ CourseListFragment.ListInterface{
     }
 
     public void downloadPressed(final Context context){
-        task = new GetCanvasCourses();
+        GetCanvasCourses task = new GetCanvasCourses();
         task.setmCallBack(new GetCanvasCourses.OnCourseListComplete() {
             @Override
             public void processCourseList(List<Course> courses) {
