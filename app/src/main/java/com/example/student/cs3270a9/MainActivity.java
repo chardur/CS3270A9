@@ -68,6 +68,15 @@ CourseListFragment.ListInterface{
 
     @Override
     public void longItemSelected(Course course) {
+
+        FragmentManager fm = getSupportFragmentManager();
+        final AssignmentDialogFragment assignmentDialogFrag = new AssignmentDialogFragment();
+        fm.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .add(android.R.id.content, assignmentDialogFrag)
+                .addToBackStack(null)
+                .commit();
+
         GetCanvasAssignments task = new GetCanvasAssignments();
         task.setCourseID(course.getId());
         task.setmCallback(new GetCanvasAssignments.OnAssignmentComplete() {
@@ -75,7 +84,11 @@ CourseListFragment.ListInterface{
             public void processAssignmentList(Assignment[] assignments) {
                 if (assignments != null){
                     // TODO: 10/25/2018 put data into listview
-                    
+                    for (Assignment a: assignments) {
+                        System.out.println("Name: "+a.getName() + " Due: " +a.getDue_at() + " points: " +a.getPoints_possible());
+                        assignmentDialogFrag.setAssignments(assignments);
+                    }
+
                 }
             }
         });

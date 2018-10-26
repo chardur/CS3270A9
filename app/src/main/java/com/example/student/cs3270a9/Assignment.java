@@ -32,4 +32,11 @@ public class Assignment {
     public void setPoints_possible(String points_possible) {
         this.points_possible = points_possible;
     }
+
+    @Override
+    public String toString() {
+        return  "Name: " + name + '\n' +
+                "Due: " + due_at + '\n' +
+                "Points: " + points_possible + '\n';
+    }
 }
