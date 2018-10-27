@@ -70,19 +70,39 @@ public class CourseViewFragment extends Fragment {
 
         code = (TextInputEditText) root.findViewById(R.id.codeView);
         code.setEnabled(false);
-        code.setText(course.getCourse_code().toString());
+        if (course.getCourse_code() != null) {
+            code.setText(course.getCourse_code().toString());
+        }else{
+            code.setText("");
+        }
         id = (TextInputEditText) root.findViewById(R.id.idView);
         id.setEnabled(false);
-        id.setText(course.getId().toString());
+        if (course.getId() != null) {
+            id.setText(course.getId().toString());
+        }else{
+            id.setText("");
+        }
         name = (TextInputEditText) root.findViewById(R.id.nameView);
         name.setEnabled(false);
-        name.setText(course.getName().toString());
+        if (course.getName() != null) {
+            name.setText(course.getName().toString());
+        }else{
+            name.setText("");
+        }
         start = (TextInputEditText) root.findViewById(R.id.startView);
         start.setEnabled(false);
-        start.setText(course.getStart_at().toString());
+        if (course.getStart_at() != null) {
+            start.setText(course.getStart_at().toString());
+        }else{
+            start.setText("");
+        }
         end = (TextInputEditText) root.findViewById(R.id.endView);
         end.setEnabled(false);
-        end.setText(course.getEnd_at().toString());
+        if (course.getEnd_at() != null) {
+            end.setText(course.getEnd_at().toString());
+        }else{
+            end.setText("");
+        }
 
 
     }

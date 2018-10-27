@@ -43,9 +43,8 @@ public class GetCanvasAssignments extends AsyncTask<String, Integer, String> {
                 case 201:
                     BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                     rawJSON = br.readLine();
-
-                    Log.d("test", "rawJson length " + rawJSON.length());
-                    Log.d("test", "rawJson first 256: " + rawJSON.substring(0, 256));
+                    //Log.d("test", "rawJson length " + rawJSON.length());
+                    //Log.d("test", "rawJson first 256: " + rawJSON.substring(0, 256));
                     break;
             }        } catch (MalformedURLException e) {
             Log.d("test", "Bad URL Unable to connect");
@@ -73,8 +72,6 @@ public class GetCanvasAssignments extends AsyncTask<String, Integer, String> {
         }catch (Exception e) {
             Log.d("test", e.getMessage());
         }
-
-
     }
 
     private Assignment[] parseJson(String result) {
@@ -84,7 +81,7 @@ public class GetCanvasAssignments extends AsyncTask<String, Integer, String> {
         Assignment[] assignments = null;
         try{
             assignments = gson.fromJson(rawJSON, Assignment[].class);
-            Log.d("test", "Assignment count " +assignments.length);
+            //Log.d("test", "Assignment count " +assignments.length);
         }catch (Exception e){
             Log.d("test", e.getMessage());
         }

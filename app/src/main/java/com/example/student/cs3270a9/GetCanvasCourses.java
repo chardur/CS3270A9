@@ -47,9 +47,8 @@ public class GetCanvasCourses extends AsyncTask<String, Integer, String> {
                 case 201:
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 rawJSON = br.readLine();
-
-                Log.d("test", "rawJson length " + rawJSON.length());
-                Log.d("test", "rawJson first 256: " + rawJSON.substring(0, 256));
+                //Log.d("test", "rawJson length " + rawJSON.length());
+                //Log.d("test", "rawJson first 256: " + rawJSON.substring(0, 256));
                 break;
             }
 
@@ -92,7 +91,7 @@ public class GetCanvasCourses extends AsyncTask<String, Integer, String> {
 
         try {
             courses = Arrays.asList(gson.fromJson(rawJSON, Course[].class));
-            Log.d("test", "courses count from pasejson" +courses.size());
+            //Log.d("test", "courses count from pasejson" +courses.size());
         }catch (Exception e){
         Log.d("test", "error at praseJson " +e.getMessage());
     }

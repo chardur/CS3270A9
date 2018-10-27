@@ -17,7 +17,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements
         CourseRecyclerViewAdapter.CourseRecyclerInterface, CourseViewFragment.CourseViewInterface,
         CourseEditFragment.CourseEditInterface, DeleteDialogFragment.DeleteDialogInterface,
-CourseListFragment.ListInterface{
+CourseListFragment.ListInterface, NewCourseDialogFragment.NewCourseDialogInterface{
 
     private CourseViewFragment courseViewFragment;
     private CourseEditFragment courseEditFragment;
@@ -40,6 +40,7 @@ CourseListFragment.ListInterface{
                 NewCourseDialogFragment newCoursedialog = new NewCourseDialogFragment();
                 fm.beginTransaction()
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .hide(fm.findFragmentByTag("contentMain"))
                         .add(android.R.id.content, newCoursedialog)
                         .addToBackStack(null)
                         .commit();
@@ -83,13 +84,8 @@ CourseListFragment.ListInterface{
             @Override
             public void processAssignmentList(Assignment[] assignments) {
                 if (assignments != null){
-                    // TODO: 10/25/2018 put data into listview
-                    for (Assignment a: assignments) {
-                        System.out.println("Name: "+a.getName() + " Due: " +a.getDue_at() + " points: " +a.getPoints_possible());
                         assignmentDialogFrag.setAssignments(assignments);
                     }
-
-                }
             }
         });
         task.execute("");
@@ -146,6 +142,12 @@ CourseListFragment.ListInterface{
             }
         });
         task.execute("");
+    }
+    public void bringBackListView(){
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction()
+                .show(fm.findFragmentByTag("contentMain"))
+                .commit();
     }
 
     public void addDownloadedCourses(final List<Course> courses, final Context context){

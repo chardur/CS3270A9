@@ -1,6 +1,9 @@
 package com.example.student.cs3270a9;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,12 +28,18 @@ public class NewCourseDialogFragment extends DialogFragment {
 
     private TextInputEditText edtID, edtName, edtCode, edtStart, edtEnd;
     private View root;
+    private NewCourseDialogInterface mCallBack;
+
+    interface NewCourseDialogInterface {
+        void bringBackListView();
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.dialog_new_course, container, false);
+        root.setBackgroundColor(Color.WHITE);
 
         Toolbar toolbar = (Toolbar) root.findViewById(R.id.toolbar);
         toolbar.setTitle("New Course");
@@ -53,6 +62,19 @@ public class NewCourseDialogFragment extends DialogFragment {
         edtEnd = (TextInputEditText) root.findViewById(R.id.edtEnd);
 
         return root;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        try {
+            mCallBack = (NewCourseDialogInterface) activity;
+        }catch (ClassCastException e){
+            throw new ClassCastException(activity.toString() +
+                    getString(R.string.ViewInterfaceError));
+        }
+
     }
 
     @NonNull
@@ -86,11 +108,12 @@ public class NewCourseDialogFragment extends DialogFragment {
                                 .insert(course);
                     }
                 }).start();
-
+                mCallBack.bringBackListView();
                 dismiss();
                 return true;
 
             case android.R.id.home:
+                mCallBack.bringBackListView();
                 dismiss();
                 return true;
 
