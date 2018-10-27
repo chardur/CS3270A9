@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.student.cs3270a9.db.AppDatabase;
 import com.example.student.cs3270a9.db.Course;
 
 import java.util.ArrayList;
