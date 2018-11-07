@@ -1,4 +1,4 @@
-# CS3270A9
+# Android app with Room database and REST api CS3270A9
 CS3270 - Android Development  Assignment #9
 
 This assignment using technologies and techniques used in prior assignments as well as the specific REST API related helps that are included in this week's module.
