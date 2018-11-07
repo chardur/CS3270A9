@@ -1,6 +1,6 @@
 # Android app with Room database and REST api CS3270A9
 CS3270 - Android Development  Assignment #9
-
+![](/CS3270A9Cap1.png) ![](/CS3270A9Cap2.png) ![](/CS3270A9Cap3.png) ![](/CS3270A8Cap2.png) ![](/CS3270A8Cap4.png)
 This assignment using technologies and techniques used in prior assignments as well as the specific REST API related helps that are included in this week's module.
 
 Your submission for this assignment will be Screen Captures, and a zip file of your entire project folder.
