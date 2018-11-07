@@ -3,11 +3,11 @@ CS3270 - Android Development  Assignment #9
 
 
 <p float="left">
-  <img src="/CS3270A9Cap1.png" width="100" />
-  <img src="/CS3270A9Cap2.png" width="100" /> 
-  <img src="/CS3270A9Cap3.png" width="100" />
-  <img src="/CS3270A8Cap2.png" width="100" />
-  <img src="/CS3270A8Cap4.png" width="100" /> 
+  <img src="/CS3270A9Cap1.png" width="250" />
+  <img src="/CS3270A9Cap2.png" width="250" /> 
+  <img src="/CS3270A9Cap3.png" width="250" />
+  <img src="/CS3270A8Cap2.png" width="250" />
+  <img src="/CS3270A8Cap4.png" width="250" /> 
 </p>
 
 
